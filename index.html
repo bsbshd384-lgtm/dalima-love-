@@ -1,0 +1,3811 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0,user-scalable=no">
+
+<meta name="theme-color" content="#080008">
+
+<title>Sorry Bou Jan ❤️</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+      "Noto Serif Bengali",
+      "Segoe UI",
+      Arial,
+      sans-serif;
+
+    background:#050005;
+    color:#fff;
+
+    overflow-x:hidden;
+
+    transition:
+      background .5s,
+      color .5s;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+      radial-gradient(
+        circle at 15% 15%,
+        rgba(255,23,68,.18),
+        transparent 28%
+      ),
+
+      radial-gradient(
+        circle at 85% 75%,
+        rgba(156,39,176,.15),
+        transparent 30%
+      );
+
+    pointer-events:none;
+    z-index:-20;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+    z-index:-5;
+
+    opacity:.035;
+
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+      radial-gradient(
+        circle at center,
+        #5c002b 0%,
+        #17000e 38%,
+        #030003 100%
+      );
+
+    overflow:hidden;
+}
+
+.intro-orb{
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    border-radius:50%;
+
+    background:#ff1744;
+
+    filter:blur(110px);
+
+    opacity:.2;
+
+    animation:
+      orbPulse 3s ease-in-out infinite;
+}
+
+@keyframes orbPulse{
+
+    0%,100%{
+        transform:scale(.8);
+        opacity:.15;
+    }
+
+    50%{
+        transform:scale(1.3);
+        opacity:.28;
+    }
+}
+
+.count{
+    position:absolute;
+
+    font-family:Arial,sans-serif;
+
+    font-size:110px;
+    font-weight:900;
+
+    opacity:0;
+
+    color:#fff;
+
+    text-shadow:
+      0 0 20px #ff1744,
+      0 0 50px #ff1744,
+      0 0 100px #ff1744;
+
+    transform:scale(.2);
+}
+
+.count.show{
+    animation:
+      numberReveal
+      .9s
+      cubic-bezier(.2,.8,.2,1)
+      forwards;
+}
+
+@keyframes numberReveal{
+
+    0%{
+        opacity:0;
+        transform:scale(.15) rotate(-8deg);
+    }
+
+    35%{
+        opacity:1;
+        transform:scale(1.25) rotate(0);
+    }
+
+    70%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.8);
+    }
+}
+
+.intro-message{
+    position:absolute;
+
+    text-align:center;
+
+    opacity:0;
+
+    transform:scale(.5);
+}
+
+.intro-message.show{
+    animation:
+      introMessage
+      2.4s
+      cubic-bezier(.2,.8,.2,1)
+      forwards;
+}
+
+.intro-mini{
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:6px;
+
+    color:#ff9fbd;
+
+    margin-bottom:18px;
+}
+
+.intro-message h1{
+
+    font-family:Arial,sans-serif;
+
+    font-size:clamp(38px,10vw,64px);
+
+    font-weight:900;
+
+    background:
+      linear-gradient(
+        90deg,
+        #fff,
+        #ff477d,
+        #fff
+      );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.intro-message p{
+    margin-top:15px;
+
+    color:#ffd5e1;
+
+    font-size:15px;
+}
+
+@keyframes introMessage{
+
+    0%{
+        opacity:0;
+        transform:scale(.45);
+    }
+
+    35%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+
+    55%{
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.intro-heart{
+    position:absolute;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    animation:
+      introFloat
+      linear
+      forwards;
+}
+
+@keyframes introFloat{
+
+    to{
+        transform:
+          translateY(-115vh)
+          rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+#app{
+    display:none;
+
+    min-height:100vh;
+}
+
+.background{
+    position:fixed;
+
+    inset:0;
+
+    z-index:-15;
+
+    background:
+      radial-gradient(
+        circle at 10% 10%,
+        rgba(255,23,68,.13),
+        transparent 30%
+      ),
+
+      radial-gradient(
+        circle at 90% 90%,
+        rgba(156,39,176,.12),
+        transparent 30%
+      ),
+
+      #050005;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:500;
+
+    height:66px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+      0 16px;
+
+    background:
+      rgba(7,0,7,.72);
+
+    backdrop-filter:
+      blur(24px);
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.08);
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-family:Arial,sans-serif;
+
+    font-weight:900;
+
+    font-size:20px;
+}
+
+.brand-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#ff1744;
+
+    box-shadow:
+      0 0 15px #ff1744;
+
+    animation:
+      blink 1.5s infinite;
+}
+
+@keyframes blink{
+
+    50%{
+        opacity:.35;
+    }
+}
+
+.brand span{
+    color:#ff477d;
+}
+
+.top-actions{
+
+    display:flex;
+
+    gap:7px;
+}
+
+.round-btn{
+
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    border:
+      1px solid
+      rgba(255,255,255,.13);
+
+    background:
+      rgba(255,255,255,.06);
+
+    color:#fff;
+
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
+    width:min(
+      94%,
+      780px
+    );
+
+    margin:auto;
+
+    padding-bottom:120px;
+}
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav{
+
+    display:flex;
+
+    gap:8px;
+
+    overflow-x:auto;
+
+    padding:
+      12px 0;
+
+    scrollbar-width:none;
+}
+
+.nav::-webkit-scrollbar{
+    display:none;
+}
+
+.nav button{
+
+    flex:none;
+
+    border:
+      1px solid
+      rgba(255,255,255,.1);
+
+    background:
+      rgba(255,255,255,.045);
+
+    color:#ddd;
+
+    padding:
+      10px 15px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    cursor:pointer;
+}
+
+.nav button.active{
+
+    color:#fff;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ff1744,
+        #b018ff
+      );
+
+    border-color:transparent;
+
+    box-shadow:
+      0 8px 25px
+      rgba(255,23,68,.22);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:80vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+      35px 0;
+}
+
+.hero-ring{
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    margin-bottom:30px;
+
+    background:
+      radial-gradient(
+        circle,
+        #ff1744,
+        #8d002f
+      );
+
+    box-shadow:
+      0 0 40px rgba(255,23,68,.3),
+      inset 0 0 30px rgba(255,255,255,.08);
+
+    animation:
+      heroPulse 2.2s infinite;
+}
+
+.hero-ring::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-13px;
+
+    border:
+      1px solid
+      rgba(255,71,125,.4);
+
+    border-radius:50%;
+
+    animation:
+      ringRotate
+      8s
+      linear
+      infinite;
+}
+
+.hero-ring::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-25px;
+
+    border:
+      1px dashed
+      rgba(255,71,125,.18);
+
+    border-radius:50%;
+}
+
+@keyframes heroPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+@keyframes ringRotate{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.hero-heart{
+
+    font-size:65px;
+
+    filter:
+      drop-shadow(
+        0 0 25px
+        #ff1744
+      );
+}
+
+.eyebrow{
+
+    color:#ff9fbd;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    margin-bottom:14px;
+}
+
+.hero h1{
+
+    font-family:Arial,sans-serif;
+
+    font-size:
+      clamp(38px,9vw,58px);
+
+    line-height:1.08;
+
+    font-weight:900;
+
+    background:
+      linear-gradient(
+        90deg,
+        #fff,
+        #ff6f9f,
+        #fff
+      );
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+}
+
+.hero-sub{
+
+    max-width:580px;
+
+    color:#d7d0d5;
+
+    line-height:1.9;
+
+    margin-top:18px;
+
+    font-size:15px;
+}
+
+.primary{
+
+    border:0;
+
+    color:#fff;
+
+    padding:
+      15px 26px;
+
+    border-radius:40px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ff1744,
+        #ff4f91
+      );
+
+    box-shadow:
+      0 15px 40px
+      rgba(255,23,68,.25);
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    margin-top:25px;
+
+    transition:.25s;
+}
+
+.primary:active{
+    transform:scale(.96);
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+      translateY(30px);
+
+    transition:
+      opacity .8s,
+      transform .8s;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+
+    margin:
+      22px 0;
+
+    padding:
+      26px;
+
+    border-radius:
+      28px;
+
+    background:
+      rgba(255,255,255,.045);
+
+    border:
+      1px solid
+      rgba(255,255,255,.1);
+
+    backdrop-filter:
+      blur(22px);
+
+    box-shadow:
+      0 22px 60px
+      rgba(0,0,0,.4);
+}
+
+.card-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:18px;
+}
+
+.card-title .icon{
+
+    width:40px;
+    height:40px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+      rgba(255,23,68,.1);
+
+    border:
+      1px solid
+      rgba(255,71,125,.15);
+}
+
+.card h2{
+
+    color:#ff719c;
+
+    font-size:21px;
+}
+
+.card p{
+
+    color:#e6e0e4;
+
+    line-height:2;
+
+    font-size:14px;
+}
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter{
+
+    text-align:center;
+}
+
+.letter-seal{
+
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+
+    margin:
+      0 auto 18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:36px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ff1744,
+        #9c27b0
+      );
+
+    box-shadow:
+      0 0 35px
+      rgba(255,23,68,.25);
+}
+
+.type-line{
+
+    min-height:32px;
+
+    color:#ffb0c7;
+
+    font-size:17px;
+
+    font-weight:700;
+}
+
+.cursor{
+
+    display:inline-block;
+
+    width:2px;
+
+    height:19px;
+
+    background:#ff477d;
+
+    margin-left:3px;
+
+    animation:
+      cursorBlink .8s infinite;
+}
+
+@keyframes cursorBlink{
+
+    50%{
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:12px;
+}
+
+.photo{
+
+    height:190px;
+
+    border-radius:23px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ff174455,
+        #9c27b055
+      );
+
+    border:
+      1px solid
+      rgba(255,255,255,.1);
+
+    cursor:pointer;
+}
+
+.photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+      transform .7s;
+}
+
+.photo:active img,
+.photo:hover img{
+
+    transform:scale(1.08);
+}
+
+.photo-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:15px;
+
+    background:
+      linear-gradient(
+        transparent,
+        rgba(0,0,0,.78)
+      );
+}
+
+.photo-overlay span{
+
+    color:#fff;
+
+    font-size:12px;
+}
+
+/* =========================================================
+   GALLERY EMPTY INFO
+========================================================= */
+
+.photo-info{
+
+    margin-top:15px;
+
+    padding:13px;
+
+    border-radius:16px;
+
+    background:
+      rgba(255,23,68,.06);
+
+    color:#aaa;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+/* =========================================================
+   VIEWER
+========================================================= */
+
+.viewer{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+      rgba(0,0,0,.94);
+
+    padding:20px;
+}
+
+.viewer.show{
+    display:flex;
+}
+
+.viewer img{
+
+    max-width:100%;
+
+    max-height:82vh;
+
+    border-radius:20px;
+
+    box-shadow:
+      0 0 70px
+      rgba(255,23,68,.18);
+}
+
+.viewer-close{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+
+    border:
+      1px solid
+      rgba(255,255,255,.2);
+
+    background:
+      rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:24px;
+}
+
+.viewer-arrow{
+
+    position:absolute;
+
+    top:50%;
+
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+
+    border:
+      1px solid
+      rgba(255,255,255,.2);
+
+    background:
+      rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:20px;
+}
+
+.viewer-prev{
+    left:15px;
+}
+
+.viewer-next{
+    right:15px;
+}
+
+/* =========================================================
+   REASONS
+========================================================= */
+
+.reason-grid{
+
+    display:grid;
+
+    gap:10px;
+}
+
+.reason{
+
+    padding:16px;
+
+    border-radius:18px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,23,68,.07),
+        rgba(156,39,176,.04)
+      );
+
+    border:
+      1px solid
+      rgba(255,71,125,.12);
+
+    color:#eee;
+
+    transition:.25s;
+}
+
+.reason:active{
+    transform:scale(.98);
+}
+
+/* =========================================================
+   LOVE METER
+========================================================= */
+
+.meter{
+
+    height:17px;
+
+    border-radius:30px;
+
+    background:
+      rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    margin:
+      20px 0 10px;
+}
+
+.meter-fill{
+
+    width:0;
+
+    height:100%;
+
+    border-radius:30px;
+
+    background:
+      linear-gradient(
+        90deg,
+        #ff1744,
+        #ff4f91,
+        #b018ff
+      );
+
+    box-shadow:
+      0 0 20px
+      rgba(255,23,68,.4);
+
+    transition:
+      width 2.5s
+      cubic-bezier(.2,.8,.2,1);
+}
+
+.meter-number{
+
+    text-align:center;
+
+    font-family:Arial,sans-serif;
+
+    font-weight:900;
+
+    font-size:26px;
+
+    color:#ff9fbd;
+}
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.timeline{
+
+    border-left:
+      2px solid
+      #ff477d;
+
+    padding-left:22px;
+}
+
+.event{
+
+    position:relative;
+
+    margin-bottom:27px;
+
+    color:#ddd;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.event::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:11px;
+    height:11px;
+
+    border-radius:50%;
+
+    background:#ff477d;
+
+    left:-29px;
+    top:6px;
+
+    box-shadow:
+      0 0 16px
+      #ff477d;
+}
+
+.event b{
+
+    display:block;
+
+    color:#ff719c;
+
+    margin-bottom:4px;
+}
+
+/* =========================================================
+   PROMISE
+========================================================= */
+
+.promise-list{
+
+    display:grid;
+
+    gap:10px;
+}
+
+.promise-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    background:
+      rgba(255,255,255,.035);
+
+    border:
+      1px solid
+      rgba(255,255,255,.08);
+
+    color:#eee;
+
+    font-size:14px;
+}
+
+.promise-check{
+
+    width:34px;
+    height:34px;
+
+    flex:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+      rgba(255,23,68,.12);
+
+    color:#ff719c;
+}
+
+/* =========================================================
+   VAULT
+========================================================= */
+
+.vault{
+
+    text-align:center;
+}
+
+.lock{
+
+    font-size:60px;
+
+    margin-bottom:12px;
+
+    filter:
+      drop-shadow(
+        0 0 20px
+        #ff1744
+      );
+}
+
+.pin-input{
+
+    width:100%;
+
+    max-width:220px;
+
+    display:block;
+
+    margin:
+      18px auto 10px;
+
+    padding:
+      14px;
+
+    border-radius:16px;
+
+    border:
+      1px solid
+      rgba(255,71,125,.25);
+
+    outline:none;
+
+    background:
+      rgba(255,255,255,.06);
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:18px;
+
+    letter-spacing:7px;
+}
+
+.vault-content{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+      rgba(255,23,68,.07);
+
+    border:
+      1px solid
+      rgba(255,71,125,.2);
+
+    color:#ffbfd0;
+
+    line-height:2;
+}
+
+/* =========================================================
+   SURPRISE
+========================================================= */
+
+.surprise{
+
+    text-align:center;
+}
+
+.gift{
+
+    font-size:70px;
+
+    display:inline-block;
+
+    animation:
+      giftFloat
+      2s
+      ease-in-out
+      infinite;
+}
+
+@keyframes giftFloat{
+
+    50%{
+        transform:
+          translateY(-10px)
+          rotate(3deg);
+    }
+}
+
+.secret{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255,23,68,.09),
+        rgba(156,39,176,.08)
+      );
+
+    border:
+      1px solid
+      rgba(255,71,125,.2);
+
+    color:#ffc2d3;
+
+    line-height:2;
+}
+
+/* =========================================================
+   ROSE
+========================================================= */
+
+.rose-area{
+
+    text-align:center;
+
+    min-height:130px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.rose{
+
+    font-size:60px;
+
+    opacity:0;
+
+    transform:
+      scale(.2)
+      rotate(-20deg);
+
+}
+
+.rose.show{
+
+    animation:
+      roseReveal
+      1.2s
+      cubic-bezier(.2,.8,.2,1)
+      forwards;
+}
+
+@keyframes roseReveal{
+
+    0%{
+        opacity:0;
+        transform:
+          scale(.2)
+          rotate(-20deg);
+    }
+
+    60%{
+        opacity:1;
+        transform:
+          scale(1.25)
+          rotate(8deg);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+          scale(1)
+          rotate(0);
+    }
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.secondary{
+
+    border:
+      1px solid
+      rgba(255,71,125,.3);
+
+    background:
+      rgba(255,23,68,.07);
+
+    color:#ffabc2;
+
+    padding:
+      12px 18px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    padding:
+      35px 0;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+.footer-heart{
+
+    color:#ff477d;
+
+    font-size:22px;
+
+    margin-bottom:7px;
+}
+
+/* =========================================================
+   HEART PARTICLES
+========================================================= */
+
+#hearts span{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    z-index:8000;
+
+    pointer-events:none;
+
+    animation:
+      heartFloat
+      linear
+      forwards;
+}
+
+@keyframes heartFloat{
+
+    to{
+
+        transform:
+          translateY(-115vh)
+          rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:7px;
+    height:12px;
+
+    z-index:8500;
+
+    animation:
+      confettiFall
+      linear
+      forwards;
+}
+
+@keyframes confettiFall{
+
+    to{
+
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:28px;
+
+    transform:
+      translate(-50%,120px);
+
+    z-index:9500;
+
+    padding:
+      13px 20px;
+
+    border-radius:30px;
+
+    background:
+      rgba(30,0,15,.92);
+
+    border:
+      1px solid
+      rgba(255,71,125,.3);
+
+    box-shadow:
+      0 15px 40px
+      rgba(0,0,0,.4);
+
+    color:#fff;
+
+    font-size:13px;
+
+    transition:
+      transform .4s;
+}
+
+.toast.show{
+
+    transform:
+      translate(-50%,0);
+}
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:13px;
+
+    transform:
+      translateX(-50%);
+
+    width:min(92%,520px);
+
+    height:65px;
+
+    z-index:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    padding:7px;
+
+    border:
+      1px solid
+      rgba(255,255,255,.1);
+
+    border-radius:24px;
+
+    background:
+      rgba(10,0,10,.8);
+
+    backdrop-filter:
+      blur(25px);
+
+    box-shadow:
+      0 20px 50px
+      rgba(0,0,0,.45);
+}
+
+.bottom-item{
+
+    width:48px;
+    height:48px;
+
+    border:0;
+
+    background:transparent;
+
+    color:#888;
+
+    border-radius:16px;
+
+    font-size:19px;
+}
+
+.bottom-item.active{
+
+    color:#fff;
+
+    background:
+      rgba(255,23,68,.14);
+}
+
+.bottom-main{
+
+    width:52px;
+    height:52px;
+
+    border-radius:18px;
+
+    border:0;
+
+    color:#fff;
+
+    font-size:21px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #ff1744,
+        #b018ff
+      );
+
+    box-shadow:
+      0 8px 25px
+      rgba(255,23,68,.3);
+}
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light{
+
+    background:#fff5f8;
+
+    color:#241019;
+}
+
+body.light .background{
+
+    background:
+      radial-gradient(
+        circle at 10% 10%,
+        #ffb8cf55,
+        transparent 30%
+      ),
+
+      radial-gradient(
+        circle at 90% 90%,
+        #dfb0ff55,
+        transparent 30%
+      ),
+
+      #fff5f8;
+}
+
+body.light .topbar{
+
+    background:
+      rgba(255,255,255,.8);
+
+    color:#241019;
+}
+
+body.light .card{
+
+    background:
+      rgba(255,255,255,.7);
+
+    border-color:
+      rgba(255,71,125,.15);
+
+    box-shadow:
+      0 20px 50px
+      rgba(150,40,80,.08);
+}
+
+body.light .card p,
+body.light .event,
+body.light .reason,
+body.light .promise-item{
+
+    color:#492a36;
+}
+
+body.light .nav button{
+
+    color:#4c2b37;
+
+    background:
+      rgba(255,255,255,.75);
+}
+
+body.light .bottom-nav{
+
+    background:
+      rgba(255,255,255,.82);
+
+    border-color:
+      rgba(100,30,60,.1);
+}
+
+body.light .bottom-item{
+
+    color:#8b6975;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:520px){
+
+    .container{
+        width:94%;
+    }
+
+    .card{
+        padding:21px;
+    }
+
+    .hero{
+        min-height:76vh;
+    }
+
+    .hero-ring{
+        width:130px;
+        height:130px;
+    }
+
+    .hero-heart{
+        font-size:55px;
+    }
+
+    .gallery{
+        gap:9px;
+    }
+
+    .photo{
+        height:155px;
+    }
+
+    .bottom-nav{
+        height:62px;
+    }
+
+    .bottom-item{
+        width:44px;
+        height:44px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="noise"></div>
+
+
+<!-- =====================================================
+     CINEMATIC INTRO
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-orb"></div>
+
+    <div id="count" class="count"></div>
+
+    <div id="introMessage" class="intro-message">
+
+        <div class="intro-mini">
+            FROM MY HEART
+        </div>
+
+        <h1>
+            SORRY BOU JAN ❤️
+        </h1>
+
+        <p>
+            একটু রাগ কমাও না... 🥺
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     APP
+===================================================== -->
+
+<div id="app">
+
+<div class="background"></div>
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-dot"></div>
+
+        For <span>Dalima</span> ❤️
+
+    </div>
+
+
+    <div class="top-actions">
+
+        <button
+          class="round-btn"
+          onclick="heartRain()">
+          💗
+        </button>
+
+        <button
+          class="round-btn"
+          onclick="toggleTheme()"
+          id="themeBtn">
+          ☀️
+        </button>
+
+    </div>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- NAV -->
+
+<nav class="nav">
+
+    <button onclick="go('home')">
+      Home
+    </button>
+
+    <button onclick="go('letter')">
+      💌 Letter
+    </button>
+
+    <button onclick="go('memories')">
+      📸 Memories
+    </button>
+
+    <button onclick="go('reasons')">
+      ❤️ Love
+    </button>
+
+    <button onclick="go('story')">
+      📖 Story
+    </button>
+
+    <button onclick="go('promise')">
+      💍 Promise
+    </button>
+
+    <button onclick="go('vault')">
+      🔐 Secret
+    </button>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-ring">
+
+        <div class="hero-heart">
+            ❤️
+        </div>
+
+    </div>
+
+
+    <div class="eyebrow">
+        A LITTLE WORLD MADE FOR YOU
+    </div>
+
+
+    <h1>
+        আমার রাগী বউটা 🥺
+    </h1>
+
+
+    <p class="hero-sub">
+
+        তোমার রাগ ভাঙানোর জন্য
+        পৃথিবীর সবচেয়ে বড় কিছু না—
+        শুধু আমার হৃদয়ের ছোট্ট একটা জায়গা
+        তোমার জন্য সাজিয়ে দিলাম। ❤️
+
+    </p>
+
+
+    <button
+      class="primary"
+      onclick="go('letter')">
+
+      💌 আমার কথাগুলো পড়ো
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     LOVE LETTER
+===================================================== -->
+
+<section
+  id="letter"
+  class="card letter reveal">
+
+    <div class="letter-seal">
+        💌
+    </div>
+
+
+    <div class="card-title"
+         style="justify-content:center">
+
+        <h2>
+            A Letter For My Love
+        </h2>
+
+    </div>
+
+
+    <div class="type-line">
+        <span id="typing"></span>
+        <span class="cursor"></span>
+    </div>
+
+
+    <br>
+
+
+    <p>
+
+        জান,<br><br>
+
+        আমি যদি কোনো ভুল করে তোমাকে
+        কষ্ট দিয়ে থাকি, সত্যি মন থেকে
+        সরি। 🥺
+
+        <br><br>
+
+        তোমাকে কষ্ট দেওয়া কখনোই
+        আমার উদ্দেশ্য ছিল না।
+
+        <br><br>
+
+        তুমি রাগ করলে আমি বুঝতে পারি,
+        আমার সবচেয়ে প্রিয় মানুষটার
+        মন ভালো নেই।
+
+        <br><br>
+
+        তাই আজ কোনো অজুহাত নয়—
+        শুধু একটা কথা:
+
+        <br><br>
+
+        <strong style="color:#ff719c">
+            আমাকে মাফ করে দাও জান। ❤️
+        </strong>
+
+        <br><br>
+
+        তোমার একটা হাসি আমার কাছে
+        অনেক বড় একটা পৃথিবী। 🥹
+
+        <br><br>
+
+        <strong style="color:#ff719c">
+            I LOVE YOU, DALIMA. ❤️
+        </strong>
+
+    </p>
+
+
+    <button
+      class="primary"
+      onclick="sorryAction()">
+
+      🥺 Okay, Come Back To Me
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     MEMORIES
+===================================================== -->
+
+<section
+  id="memories"
+  class="card reveal">
+
+    <div class="card-title">
+
+        <div class="icon">
+            📸
+        </div>
+
+        <h2>
+            Our Memories
+        </h2>
+
+    </div>
+
+
+    <p style="margin-bottom:16px">
+
+        এখানে তোমার নিজের ছবিগুলো বসবে।
+        ছবিতে চাপ দিলে fullscreen হবে। ❤️
+
+    </p>
+
+
+    <div class="gallery">
+
+        <!-- PHOTO 1 -->
+
+        <div
+          class="photo"
+          onclick="openViewer(0)">
+
+            <img
+              src="images/photo1.jpg"
+              alt="Memory 1">
+
+            <div class="photo-overlay">
+                <span>
+                    ❤️ Our Moment
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 2 -->
+
+        <div
+          class="photo"
+          onclick="openViewer(1)">
+
+            <img
+              src="images/photo2.jpg"
+              alt="Memory 2">
+
+            <div class="photo-overlay">
+                <span>
+                    🥰 Beautiful Memory
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 3 -->
+
+        <div
+          class="photo"
+          onclick="openViewer(2)">
+
+            <img
+              src="images/photo3.jpg"
+              alt="Memory 3">
+
+            <div class="photo-overlay">
+                <span>
+                    💕 Together
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 4 -->
+
+        <div
+          class="photo"
+          onclick="openViewer(3)">
+
+            <img
+              src="images/photo4.jpg"
+              alt="Memory 4">
+
+            <div class="photo-overlay">
+                <span>
+                    🌹 Favorite
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 5 -->
+
+        <div
+          class="photo"
+          onclick="openViewer(4)">
+
+            <img
+              src="images/photo5.jpg"
+              alt="Memory 5">
+
+            <div class="photo-overlay">
+                <span>
+                    🫶 Forever
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 6 -->
+
+        <div
+          class="photo"
+          onclick="openViewer(5)">
+
+            <img
+              src="images/photo6.jpg"
+              alt="Memory 6">
+
+            <div class="photo-overlay">
+                <span>
+                    💍 Us
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="photo-info">
+
+        📌 ছবিগুলো রাখতে project-এর ভিতরে
+        <b>images</b> নামে folder বানিয়ে
+        photo1.jpg থেকে photo6.jpg রাখবে।
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOVE REASONS
+===================================================== -->
+
+<section
+  id="reasons"
+  class="card reveal">
+
+    <div class="card-title">
+
+        <div class="icon">
+            ❤️
+        </div>
+
+        <h2>
+            Why I Love You
+        </h2>
+
+    </div>
+
+
+    <div class="reason-grid">
+
+        <div class="reason">
+            ❤️ তুমি আমার সবচেয়ে আপন মানুষ।
+        </div>
+
+        <div class="reason">
+            🥺 তোমার মন খারাপ হলে
+            আমারও মন খারাপ হয়।
+        </div>
+
+        <div class="reason">
+            😊 তোমার হাসিটা আমার
+            সবচেয়ে প্রিয়।
+        </div>
+
+        <div class="reason">
+            🫶 তোমার সাথে কথা বললে
+            আমার মন ভালো হয়ে যায়।
+        </div>
+
+        <div class="reason">
+            🌹 তোমার ছোট ছোট
+            অভিমানও আমার কাছে প্রিয়।
+        </div>
+
+        <div class="reason">
+            💍 তোমাকে নিয়েই
+            আমার ভবিষ্যতের স্বপ্ন।
+        </div>
+
+        <div class="reason">
+            🥰 তোমাকে প্রতিদিন
+            নতুন করে ভালোবাসতে ইচ্ছে করে।
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LOVE METER
+===================================================== -->
+
+<section class="card reveal">
+
+    <div class="card-title">
+
+        <div class="icon">
+            💖
+        </div>
+
+        <h2>
+            Our Love Meter
+        </h2>
+
+    </div>
+
+
+    <p>
+        এই মিটারটা শেষ পর্যন্ত কত হবে,
+        সেটা তো তুমি জানো। ❤️
+    </p>
+
+
+    <div class="meter">
+
+        <div
+          class="meter-fill"
+          id="loveMeter">
+        </div>
+
+    </div>
+
+
+    <div class="meter-number">
+
+        <span id="lovePercent">
+            0
+        </span>%
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<section
+  id="story"
+  class="card reveal">
+
+    <div class="card-title">
+
+        <div class="icon">
+            📖
+        </div>
+
+        <h2>
+            Our Little Story
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="event">
+
+            <b>
+                🌸 The Beginning
+            </b>
+
+            আমাদের গল্পের শুরুটা
+            হয়তো ছোট ছিল,
+            কিন্তু অনুভূতিটা ছিল বড়।
+
+        </div>
+
+
+        <div class="event">
+
+            <b>
+                ❤️ Getting Closer
+            </b>
+
+            ধীরে ধীরে তুমি আমার
+            জীবনের সবচেয়ে গুরুত্বপূর্ণ
+            মানুষ হয়ে গেলে।
+
+        </div>
+
+
+        <div class="event">
+
+            <b>
+                🥰 Beautiful Moments
+            </b>
+
+            ছোট ছোট মুহূর্তগুলোই
+            আজ সবচেয়ে বড় স্মৃতি।
+
+        </div>
+
+
+        <div class="event">
+
+            <b>
+                💍 Today
+            </b>
+
+            আজও তোমাকে ভালোবাসি,
+            আর আরও ভালোবাসতে চাই।
+
+        </div>
+
+
+        <div class="event">
+
+            <b>
+                ♾️ Forever
+            </b>
+
+            আমাদের গল্পের সবচেয়ে
+            সুন্দর অধ্যায়গুলো এখনও বাকি।
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROMISE
+===================================================== -->
+
+<section
+  id="promise"
+  class="card reveal">
+
+    <div class="card-title">
+
+        <div class="icon">
+            💍
+        </div>
+
+        <h2>
+            My Promises
+        </h2>
+
+    </div>
+
+
+    <div class="promise-list">
+
+        <div class="promise-item">
+
+            <div class="promise-check">
+                ❤️
+            </div>
+
+            তোমার হাসির কারণ হওয়ার
+            চেষ্টা করব।
+
+        </div>
+
+
+        <div class="promise-item">
+
+            <div class="promise-check">
+                🫶
+            </div>
+
+            তোমার কষ্টের সময়
+            তোমার পাশে থাকব।
+
+        </div>
+
+
+        <div class="promise-item">
+
+            <div class="promise-check">
+                🥺
+            </div>
+
+            তোমার অভিমান
+            বুঝতে চেষ্টা করব।
+
+        </div>
+
+
+        <div class="promise-item">
+
+            <div class="promise-check">
+                🌹
+            </div>
+
+            তোমাকে সম্মান করব।
+
+        </div>
+
+
+        <div class="promise-item">
+
+            <div class="promise-check">
+                ♾️
+            </div>
+
+            তোমার প্রতি ভালোবাসাটা
+            যত্ন করে রাখব।
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ROSE
+===================================================== -->
+
+<section class="card reveal">
+
+    <div class="card-title">
+
+        <div class="icon">
+            🌹
+        </div>
+
+        <h2>
+            A Rose For You
+        </h2>
+
+    </div>
+
+
+    <div class="rose-area">
+
+        <div
+          class="rose"
+          id="rose">
+          🌹
+        </div>
+
+
+        <button
+          class="secondary"
+          onclick="giveRose()">
+
+          🌹 Take My Rose
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SECRET VAULT
+===================================================== -->
+
+<section
+  id="vault"
+  class="card vault reveal">
+
+    <div class="lock">
+        🔐
+    </div>
+
+
+    <div class="card-title"
+         style="justify-content:center">
+
+        <h2>
+            Secret Love Vault
+        </h2>
+
+    </div>
+
+
+    <p>
+        এখানে একটা secret message
+        লুকিয়ে রেখেছি। ❤️
+    </p>
+
+
+    <input
+      id="pin"
+      class="pin-input"
+      type="password"
+      inputmode="numeric"
+      maxlength="4"
+      placeholder="••••">
+
+
+    <button
+      class="primary"
+      onclick="unlockVault()">
+
+      🔓 Unlock
+
+    </button>
+
+
+    <div
+      id="vaultContent"
+      class="vault-content">
+
+        🥹❤️
+
+        <br><br>
+
+        তুমি হয়তো জানো না,
+        কিন্তু আমার দিনের অনেকটা
+        জুড়ে তুমি আছো।
+
+        <br><br>
+
+        তোমার হাসি মনে পড়লে
+        আমার নিজের অজান্তেই
+        হাসি চলে আসে।
+
+        <br><br>
+
+        আর আজকের secret কথা—
+
+        <br><br>
+
+        <strong>
+          তুমি আমার খুব প্রিয়। ❤️
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SURPRISE
+===================================================== -->
+
+<section
+  class="card surprise reveal">
+
+    <div class="gift">
+        🎁
+    </div>
+
+
+    <div class="card-title"
+         style="justify-content:center">
+
+        <h2>
+            One Last Surprise
+        </h2>
+
+    </div>
+
+
+    <p>
+        এটা খুললে কিন্তু
+        অনেক ভালোবাসা বের হবে। 🥺❤️
+    </p>
+
+
+    <button
+      class="primary"
+      onclick="openGift()">
+
+      🎁 Open My Heart
+
+    </button>
+
+
+    <div
+      id="secretMessage"
+      class="secret">
+
+        ❤️
+
+        <br><br>
+
+        তুমি আমার কাছে শুধু একজন মানুষ নও।
+
+        <br><br>
+
+        তুমি আমার হাসি,
+        আমার শান্তি,
+        আমার ভালো লাগা,
+        আমার সবচেয়ে প্রিয় মানুষ।
+
+        <br><br>
+
+        পৃথিবীতে অনেক সুন্দর জিনিস আছে,
+        কিন্তু তোমার হাসিটা আমার
+        কাছে সবচেয়ে সুন্দর।
+
+        <br><br>
+
+        <strong>
+          রাগটা এবার একটু কমাও না জান। 🥺❤️
+        </strong>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL MESSAGE
+===================================================== -->
+
+<section class="card reveal"
+         style="text-align:center">
+
+    <div style="
+      font-size:65px;
+      margin-bottom:10px;
+    ">
+        🥺❤️
+    </div>
+
+
+    <h2 style="
+      color:#ff719c;
+      margin-bottom:16px;
+    ">
+        শেষ একটা কথা
+    </h2>
+
+
+    <p>
+
+        তুমি রাগ করলে আমি মানাবো।
+
+        <br>
+
+        তুমি অভিমান করলে
+        অভিমান ভাঙানোর চেষ্টা করব।
+
+        <br>
+
+        তুমি চুপ করলে
+        তোমার কথা শোনার অপেক্ষা করব।
+
+        <br><br>
+
+        কারণ তুমি আমার কাছে
+        সত্যিই অনেক গুরুত্বপূর্ণ। ❤️
+
+    </p>
+
+
+    <button
+      class="primary"
+      onclick="
+        heartRain();
+        confetti();
+        toast('ভালোবাসি তোমাকে, ডালিমা ❤️');
+      ">
+
+      ❤️ LOVE YOU
+
+    </button>
+
+</section>
+
+
+<div class="footer">
+
+    <div class="footer-heart">
+        ❤️
+    </div>
+
+    Made with infinite love
+
+    <br>
+
+    <b>
+      For Dalima
+    </b>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     PHOTO VIEWER
+===================================================== -->
+
+<div
+  id="viewer"
+  class="viewer">
+
+    <button
+      class="viewer-close"
+      onclick="closeViewer()">
+      ×
+    </button>
+
+
+    <button
+      class="viewer-arrow viewer-prev"
+      onclick="previousPhoto()">
+      ‹
+    </button>
+
+
+    <img
+      id="viewerImage"
+      src=""
+      alt="Memory">
+
+
+    <button
+      class="viewer-arrow viewer-next"
+      onclick="nextPhoto()">
+      ›
+    </button>
+
+</div>
+
+
+<!-- PARTICLES -->
+
+<div id="hearts"></div>
+
+
+<!-- TOAST -->
+
+<div
+  id="toast"
+  class="toast">
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <button
+      class="bottom-item active"
+      onclick="go('home')">
+      🏠
+    </button>
+
+
+    <button
+      class="bottom-item"
+      onclick="go('letter')">
+      💌
+    </button>
+
+
+    <button
+      class="bottom-main"
+      onclick="heartRain();confetti()">
+      ❤️
+    </button>
+
+
+    <button
+      class="bottom-item"
+      onclick="go('memories')">
+      📸
+    </button>
+
+
+    <button
+      class="bottom-item"
+      onclick="go('vault')">
+      🔐
+    </button>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+const intro =
+  document.getElementById("intro");
+
+const count =
+  document.getElementById("count");
+
+const introMessage =
+  document.getElementById("introMessage");
+
+const app =
+  document.getElementById("app");
+
+
+let currentNumber = 1;
+
+
+function playIntro(){
+
+    count.innerHTML =
+      currentNumber;
+
+    count.classList.remove("show");
+
+    void count.offsetWidth;
+
+    count.classList.add("show");
+
+
+    if(currentNumber < 3){
+
+        currentNumber++;
+
+        setTimeout(
+          playIntro,
+          1000
+        );
+
+    }else{
+
+        setTimeout(
+          showIntroMessage,
+          1100
+        );
+
+    }
+
+}
+
+
+function showIntroMessage(){
+
+    introMessage.classList.add("show");
+
+    introHearts();
+
+
+    setTimeout(()=>{
+
+        intro.style.transition =
+          "opacity 1.2s ease";
+
+        intro.style.opacity = "0";
+
+
+        setTimeout(()=>{
+
+            intro.style.display =
+              "none";
+
+            app.style.display =
+              "block";
+
+            document.body.style.overflow =
+              "auto";
+
+
+            startLoveMeter();
+
+            startTyping();
+
+            revealObserver();
+
+        },1200);
+
+    },3300);
+
+}
+
+
+/* INTRO HEARTS */
+
+function introHearts(){
+
+    for(let i=0;i<35;i++){
+
+        const h =
+          document.createElement("div");
+
+        h.className =
+          "intro-heart";
+
+        h.innerHTML =
+          [
+            "❤️",
+            "💗",
+            "💕",
+            "💖"
+          ][
+            Math.floor(
+              Math.random()*4
+            )
+          ];
+
+        h.style.left =
+          Math.random()*100+"%";
+
+        h.style.fontSize =
+          (14+
+          Math.random()*25)+"px";
+
+        h.style.animationDuration =
+          (3+
+          Math.random()*4)+"s";
+
+        intro.appendChild(h);
+
+
+        setTimeout(
+          ()=>h.remove(),
+          8000
+        );
+
+    }
+
+}
+
+
+setTimeout(
+  playIntro,
+  700
+);
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+function go(id){
+
+    const section =
+      document.getElementById(id);
+
+    if(!section) return;
+
+
+    section.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+
+    toast(
+      "❤️ "+id
+    );
+
+}
+
+
+/* =========================================================
+   TYPING EFFECT
+========================================================= */
+
+const typingText =
+  "তোমার হাসিটা আমার সবচেয়ে প্রিয়... ❤️";
+
+let typingIndex = 0;
+
+
+function startTyping(){
+
+    const target =
+      document.getElementById("typing");
+
+    if(!target) return;
+
+
+    function type(){
+
+        if(
+          typingIndex <
+          typingText.length
+        ){
+
+            target.innerHTML +=
+              typingText.charAt(
+                typingIndex
+              );
+
+            typingIndex++;
+
+            setTimeout(
+              type,
+              75
+            );
+
+        }
+
+    }
+
+    type();
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+function revealObserver(){
+
+    const items =
+      document.querySelectorAll(
+        ".reveal"
+      );
+
+
+    const observer =
+      new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(
+              entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                      .classList
+                      .add("visible");
+
+                }
+
+              }
+            );
+
+        },
+        {
+          threshold:.12
+        }
+      );
+
+
+    items.forEach(
+      item =>
+        observer.observe(item)
+    );
+
+}
+
+
+/* =========================================================
+   LOVE METER
+========================================================= */
+
+function startLoveMeter(){
+
+    const meter =
+      document.getElementById(
+        "loveMeter"
+      );
+
+    const percent =
+      document.getElementById(
+        "lovePercent"
+      );
+
+
+    let value = 0;
+
+
+    const timer =
+      setInterval(()=>{
+
+          value++;
+
+          meter.style.width =
+            value+"%";
+
+          percent.innerHTML =
+            value;
+
+
+          if(value >= 100){
+
+              clearInterval(timer);
+
+          }
+
+      },22);
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function toggleTheme(){
+
+    document.body.classList
+      .toggle("light");
+
+
+    const button =
+      document.getElementById(
+        "themeBtn"
+      );
+
+
+    const isLight =
+      document.body.classList
+        .contains("light");
+
+
+    button.innerHTML =
+      isLight
+      ? "🌙"
+      : "☀️";
+
+
+    localStorage.setItem(
+      "loveTheme",
+      isLight
+      ? "light"
+      : "dark"
+    );
+
+}
+
+
+/* RESTORE THEME */
+
+if(
+  localStorage.getItem(
+    "loveTheme"
+  ) === "light"
+){
+
+    document.body.classList
+      .add("light");
+
+}
+
+
+/* =========================================================
+   SORRY ACTION
+========================================================= */
+
+function sorryAction(){
+
+    heartRain();
+
+    confetti();
+
+    toast(
+      "🥹❤️ রাগটা একটু কমাও জান..."
+    );
+
+}
+
+
+/* =========================================================
+   ROSE
+========================================================= */
+
+function giveRose(){
+
+    const rose =
+      document.getElementById(
+        "rose"
+      );
+
+
+    rose.classList.remove(
+      "show"
+    );
+
+    void rose.offsetWidth;
+
+    rose.classList.add(
+      "show"
+    );
+
+
+    heartRain();
+
+    toast(
+      "🌹 এই গোলাপটা শুধু তোমার জন্য"
+    );
+
+}
+
+
+/* =========================================================
+   SECRET VAULT
+========================================================= */
+
+function unlockVault(){
+
+    const pin =
+      document.getElementById(
+        "pin"
+      ).value;
+
+
+    /*
+       PIN তুমি চাইলে এখানে বদলাতে পারো।
+       Default: 1432
+    */
+
+    if(pin === "1432"){
+
+        document.getElementById(
+          "vaultContent"
+        ).style.display =
+          "block";
+
+
+        heartRain();
+
+        confetti();
+
+        toast(
+          "🔓 Secret unlocked ❤️"
+        );
+
+    }else{
+
+        toast(
+          "🔒 PIN ঠিক হয়নি"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   GIFT
+========================================================= */
+
+function openGift(){
+
+    const secret =
+      document.getElementById(
+        "secretMessage"
+      );
+
+
+    if(
+      secret.style.display ===
+      "block"
+    ){
+
+        secret.style.display =
+          "none";
+
+    }else{
+
+        secret.style.display =
+          "block";
+
+
+        heartRain();
+
+        confetti();
+
+        toast(
+          "🎁 Surprise unlocked ❤️"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   HEART RAIN
+========================================================= */
+
+function heartRain(){
+
+    const holder =
+      document.getElementById(
+        "hearts"
+      );
+
+
+    const emojis = [
+      "❤️",
+      "💗",
+      "💕",
+      "💖",
+      "💘",
+      "🥰",
+      "🌹"
+    ];
+
+
+    for(let i=0;i<45;i++){
+
+        const h =
+          document.createElement(
+            "span"
+          );
+
+
+        h.innerHTML =
+          emojis[
+            Math.floor(
+              Math.random()*
+              emojis.length
+            )
+          ];
+
+
+        h.style.left =
+          Math.random()*100+"%";
+
+
+        h.style.fontSize =
+          (14+
+          Math.random()*28)+"px";
+
+
+        h.style.animationDuration =
+          (3+
+          Math.random()*5)+"s";
+
+
+        holder.appendChild(h);
+
+
+        setTimeout(
+          ()=>h.remove(),
+          9000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function confetti(){
+
+    const pieces = [
+      "#ff1744",
+      "#ff4f91",
+      "#ffd166",
+      "#b018ff",
+      "#fff"
+    ];
+
+
+    for(let i=0;i<70;i++){
+
+        const piece =
+          document.createElement(
+            "div"
+          );
+
+
+        piece.className =
+          "confetti";
+
+
+        piece.style.left =
+          Math.random()*100+"%";
+
+
+        piece.style.width =
+          (4+
+          Math.random()*6)+"px";
+
+
+        piece.style.height =
+          (7+
+          Math.random()*9)+"px";
+
+
+        piece.style.background =
+          pieces[
+            Math.floor(
+              Math.random()*
+              pieces.length
+            )
+          ];
+
+
+        piece.style.animationDuration =
+          (2+
+          Math.random()*4)+"s";
+
+
+        piece.style.animationDelay =
+          Math.random()+ "s";
+
+
+        document.body.appendChild(
+          piece
+        );
+
+
+        setTimeout(
+          ()=>piece.remove(),
+          6500
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function toast(message){
+
+    const box =
+      document.getElementById(
+        "toast"
+      );
+
+
+    box.innerHTML =
+      message;
+
+
+    box.classList.add(
+      "show"
+    );
+
+
+    clearTimeout(
+      window.toastTimer
+    );
+
+
+    window.toastTimer =
+      setTimeout(()=>{
+
+          box.classList.remove(
+            "show"
+          );
+
+      },2800);
+
+}
+
+
+/* =========================================================
+   PHOTO VIEWER
+========================================================= */
+
+const photos = [
+
+    "images/photo1.jpg",
+    "images/photo2.jpg",
+    "images/photo3.jpg",
+    "images/photo4.jpg",
+    "images/photo5.jpg",
+    "images/photo6.jpg"
+
+];
+
+
+let photoIndex = 0;
+
+
+function openViewer(index){
+
+    photoIndex =
+      index;
+
+
+    const viewer =
+      document.getElementById(
+        "viewer"
+      );
+
+
+    const image =
+      document.getElementById(
+        "viewerImage"
+      );
+
+
+    image.src =
+      photos[
+        photoIndex
+      ];
+
+
+    viewer.classList.add(
+      "show"
+    );
+
+}
+
+
+function closeViewer(){
+
+    document.getElementById(
+      "viewer"
+    ).classList.remove(
+      "show"
+    );
+
+}
+
+
+function nextPhoto(){
+
+    photoIndex++;
+
+    if(
+      photoIndex >=
+      photos.length
+    ){
+
+        photoIndex = 0;
+
+    }
+
+
+    document.getElementById(
+      "viewerImage"
+    ).src =
+      photos[
+        photoIndex
+      ];
+
+}
+
+
+function previousPhoto(){
+
+    photoIndex--;
+
+    if(photoIndex < 0){
+
+        photoIndex =
+          photos.length-1;
+
+    }
+
+
+    document.getElementById(
+      "viewerImage"
+    ).src =
+      photos[
+        photoIndex
+      ];
+
+}
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+      if(event.key === "Escape"){
+
+          closeViewer();
+
+      }
+
+
+      if(event.key === "ArrowRight"){
+
+          nextPhoto();
+
+      }
+
+
+      if(event.key === "ArrowLeft"){
+
+          previousPhoto();
+
+      }
+
+  }
+);
+
+
+/* =========================================================
+   SWIPE PHOTO
+========================================================= */
+
+let touchStartX = 0;
+
+
+document.getElementById(
+  "viewer"
+).addEventListener(
+  "touchstart",
+  event=>{
+
+      touchStartX =
+        event.changedTouches[0].screenX;
+
+  }
+);
+
+
+document.getElementById(
+  "viewer"
+).addEventListener(
+  "touchend",
+  event=>{
+
+      const endX =
+        event.changedTouches[0].screenX;
+
+
+      const difference =
+        endX-touchStartX;
+
+
+      if(
+        Math.abs(difference)>50
+      ){
+
+          if(difference<0){
+
+              nextPhoto();
+
+          }else{
+
+              previousPhoto();
+
+          }
+
+      }
+
+  }
+);
+
+
+/* =========================================================
+   PREVENT IMAGE DRAG
+========================================================= */
+
+document.querySelectorAll(
+  "img"
+).forEach(
+  image=>{
+      image.ondragstart =
+        ()=>false;
+  }
+);
+
+</script>
+
+</body>
+</html>
